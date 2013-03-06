@@ -1,0 +1,41 @@
+The data in this directory were compiled by members of
+Kevin Arrigo's laboratory at Stanford University.  Any
+use of this data should cite the following paper as a 
+reference on the Ross Sea ecosystem.
+
+Arrigo, K. R., Worthen, D. L., & Robinson, D. H. (2003). 
+A coupled ocean--ecosystem model of the Ross Sea: 2. Iron 
+regulation of phytoplankton taxonomic variability and 
+primary production. Journal of Geophysical Research, 
+108, 3231.
+
+The columns are:
+
+  JD  -- Julian date.  The sample period crosses a new 
+         year, but the value of JD continues to increase
+         instead of starting over at 1.  Day 292 
+         corresponds to October, 19th.
+  ice -- The percentage of the Ross Sea covered by ice.
+  PAR -- Photosynthetically active radiation at the sea
+         surface.
+  PUR -- Photosynthetically usable radiation at the sea
+         surface in uE m-2 s-1.
+  SST -- Sea surface temperature in degrees Celsius.
+  NO3 -- The concentration of nitrates in umol/L.
+  PO4 -- The concentration of phosphates in umol/L.
+  P   -- The concentration of phytoplankton in ug C/L
+         assuming all chla is Phaeocystis.  This is 
+         equivalent to chla * 90.
+  chla -- The concentration of chlorophyll a in 
+          ug chla/L.
+
+The source data come from heterogenous sources in both
+time and space.  This data set has been processed to
+represent the Ross Sea as a single point in space and
+to interpolate missing values.
+
+ross-sea-yr1.data contains trajectories for the summer
+months crossing the 1996--1997 year boundary.
+
+ross-sea-yr2.data contains trajectories for the summer
+months crossing the 1997--1998 year boundary.

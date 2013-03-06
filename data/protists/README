@@ -1,0 +1,22 @@
+The data in this directory were taken from 
+
+Jost, C., & Ellner, S. (2000). Testing for predator dependence in 
+predator--prey dynamics: a non-parametric approach. Proceedings of 
+the Royal Society of London B, 267, 1611--1620.
+
+The columns are:
+  t -- time in days, measurements were taken at 12 hour intervals
+  aurelia -- number of individuals of P. aurelia (the prey) within 
+             the population (averaged over 8 countings).
+  nasutum -- number of individuals of D. nasutum (the predator) within
+             the population (averaged over 8 countings).
+
+Jost and Ellner extracted these data from earlier work by Veilleux.
+
+The files 1a, 1b, and 1c correspond to the data plotted in Figures
+1a, 1b, and 1c of the Jost and Ellner paper.  The other files are
+shortened versions of the original trajectories created by removing
+some of the initial data points.
+
+Any papers reporting results from this data should cite the above
+Jost and Ellner paper as the source.

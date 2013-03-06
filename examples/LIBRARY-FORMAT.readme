@@ -1,0 +1,70 @@
+This file includes a very brief description of the generic
+library format.  The population dynamics library is the most 
+straightforward of the example libraries.  The aquatic 
+ecosystem library is relatively complex, but it illustrates
+most, if not all, of the features of HIPM's knowledge 
+representation. 
+
+
+
+<generic_entity_id> = lib.add_generic_entity("identifier",
+        { # variables
+        	"variable_id": <aggregation_function>,
+		# <aggregation_function> is one of "min" "max" "prod" "sum"
+                # this determines how HIPM combines equation components
+                # for this variable (take the minimum or maximum value or
+                # evaluate the product or sum).
+                "example_variable": "min"
+        },
+        { # constant parameters
+		"constant_id": (<minimum_value>, <maximum_value>),
+		"example_constant": (0, 100)
+        }
+);
+
+
+lib.add_generic_process("process_id", "process_type",
+        [ # parameters (id, generic_entities, min, max)
+                ("A",[<generic_entity_id>+],1,1), 
+                                # entity role "A" is filled by an entity
+                                # that instantiates one of the generic 
+				# entities within the list
+                ("B",[ge1,ge2],1,100),
+                                # at least one entity having type ge1 or ge2
+                                # must fill this role and at most 100 may fill it.
+				# note that the generic entities are specified by
+                                # their Python ID and not by the "identifier" string.
+                ("C",[ge1],0,1)
+                   		# zero entities may fill this role.
+        ],
+        [ # subprocesses (id, parameters, optional_flag)
+                ("subprocess_type1", ["A","B","C"], 1),
+				# subprocesses are specified by their types.
+				# the order of the parameters matters
+				# the 1 indicates that the subprocess is required
+                ("subprocess_type2", ["A"], 0)
+				# this subprocess is optional
+        ],
+        { # constant parameters
+		# these are specified in the same way as generic entities
+                "constant_id": (<minimum_value>, <maximum_value>),
+                "example_constant": (0, 100)
+        },
+	
+	# arithmetic expressions can be any valid C arithmetical expression.
+
+        { # algebraic equations
+		# LHS : RHS
+		# LHS = RHS
+                # HIPM allows 0 or more algebraic equation elements per process
+		"A.variable_name": "<arithmetic_expression>",
+                "B.variable_name": "<arithmetic_expression>"
+        },
+        { # differential equations
+		# X : RHS
+		# d[X,t,1] = RHS (first order derivative of X with respect to time)
+                # HIPM allows 0 or more differential equation elements per process
+                "C.variable_name": "<arithmetic_expression>"
+        }
+);
+
